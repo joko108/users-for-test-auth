@@ -5,10 +5,13 @@ import { inputValidationResultMiddleware } from '../../core/middlewares/input-va
 import { usersCreateHandler } from './handlers/users-create.handler';
 import { paramIdValidation } from '../../core/middlewares/validation/param-id.validation';
 import { usersGetHandler } from './handlers/users-get.handler';
+import { usersGetListHandler } from './handlers/users-get-list.handler';
 
 export const usersRouter = Router();
 
 usersRouter
+  .get(USERS_ROUTES.ROOT, usersGetListHandler)
+
   .get(
     USERS_ROUTES.BY_ID,
     paramIdValidation,
