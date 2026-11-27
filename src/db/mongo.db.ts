@@ -16,6 +16,6 @@ export const runDb = async (url: string): Promise<void> => {
     console.log('✅Connected to database');
   } catch (er) {
     await client.close();
-    throw new Error(`❌Can't connect to database`);
+    throw new Error(`❌Can't connect to database, ${er}`);
   }
 };
